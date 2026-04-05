@@ -55,85 +55,70 @@ The overall pipeline consists of the following steps:
 
 ## 3. Output (Evaluation)
 
-Model A (Baseline)
-```
-Model A (Baseline - DeepFM)
 
-Input Features
-│
-├── Sparse Features
-│   ├── user_id, adgroup_id
-│   ├── cate_id, campaign_id
-│   └── user profile features
-│
-└── Dense Features
-    ├── total_pv, total_cart, total_buy
-    ├── buy_rate, cart_rate
-    └── category statistics
-        ↓
-Embedding Layer
-(Sparse → Dense vector)
-        ↓
-───────────────
-FM Component
-- 2nd-order feature interactions
-- captures pairwise relationships
-───────────────
-        ↓
-───────────────
-Deep Component (MLP)
-- nonlinear feature interactions
-- high-dimensional representation learning
-───────────────
-        ↓
-Output Layer
-- CTR prediction (click probability)
+
+### 🔹 Model A (Baseline: DeepFM)
+
+```text
+[Sparse & Dense Features]
+        │
+        ▼
+[Embedding Layer]
+(Sparse → Dense Vector)
+        │
+        ├───────────────┐
+        ▼               ▼
+[FM Component]     [Deep Component]
+(2nd-order         (MLP)
+ interactions)     nonlinear learning
+        │               │
+        └──────┬────────┘
+               ▼
+        [Output Layer]
+        CTR Prediction
 ```
 - AUC: 0.6424  
 - LogLoss: 0.1943  
 - ECE: 0.0122  
 - 
 Model B (Enhanced)
-```
-Model B (Enhanced - Intent-aware DeepFM)
 
-Input Features
-│
-├── Structured Features (same as Model A)
-│
-└── Intent Feature Pipeline
-    │
-    ├── Behavior Aggregation
-    │   ├── pv_to_cart_rate
-    │   ├── cart_to_buy_rate
-    │   └── cate_diversity
-    │
-    ├── Text Template Generation
-    │   └── "User is a high conversion buyer..."
-    │
-    ├── Sentence Transformer
-    │   └── text → embedding (768 dim)
-    │
-    └── PCA
-        └── dimension reduction (e.g., 64)
-        ↓
-Embedding Layer
-(Structured + Intent embedding)
-        ↓
-───────────────
-FM Component
-- 2nd-order feature interactions
-───────────────
-        ↓
-───────────────
-Deep Component (MLP)
-- nonlinear interactions
-- integrates semantic intent signals
-───────────────
-        ↓
-Output Layer
-- CTR prediction (click probability)
+```md
+### 🔹 Model B (Enhanced: Intent-aware DeepFM)
 
+```text
+[User Behavior Data]
+        │
+        ▼
+[Feature Engineering]
+(pv_to_cart, buy_rate, etc.)
+        │
+        ▼
+[Text Template]
+"User is a high conversion buyer..."
+        │
+        ▼
+[Sentence Transformer]
+        │
+        ▼
+[PCA]
+(Intent Embedding)
+        │
+        ▼
+────────────────────────────────
+[Structured Features + Intent Embedding]
+        │
+        ▼
+[Embedding Layer]
+        │
+        ├───────────────┐
+        ▼               ▼
+[FM Component]     [Deep Component]
+        │               │
+        └──────┬────────┘
+               ▼
+        [Output Layer]
+        CTR Prediction
 ```
 Model B (Enhanced)
 - AUC: 0.6592  
