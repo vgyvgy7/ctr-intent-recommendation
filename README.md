@@ -92,17 +92,6 @@ Output Layer
 - AUC: 0.6424  
 - LogLoss: 0.1943  
 - ECE: 0.0122  
-
-Model B (Enhanced)
-- AUC: 0.6592  
-- LogLoss: 0.1925  
-- ECE: 0.0076  
-
-Key observations:
-- Model B outperforms Model A in overall performance
-- Improvement is especially significant for sparse users
-- Intent embeddings help recover performance loss in limited data settings
-
 - 
 Model B (Enhanced)
 ```
@@ -146,6 +135,16 @@ Output Layer
 - CTR prediction (click probability)
 
 ```
+Model B (Enhanced)
+- AUC: 0.6592  
+- LogLoss: 0.1925  
+- ECE: 0.0076  
+
+Key observations:
+- Model B outperforms Model A in overall performance
+- Improvement is especially significant for sparse users
+- Intent embeddings help recover performance loss in limited data settings
+
 ---
 
 ## 4. Repository Structure
