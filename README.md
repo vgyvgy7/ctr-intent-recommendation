@@ -104,7 +104,7 @@ data/
 - AUC: 0.6424  
 - LogLoss: 0.1943  
 - ECE: 0.0122
--  
+  
 Model B (Enhanced)
 
 ```
