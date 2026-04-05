@@ -48,9 +48,33 @@ The overall pipeline consists of the following steps:
    - AUC
    - Log Loss
    - ECE (Expected Calibration Error)
+```
+##  Dataset Setup
 
+This project uses the **Taobao Ad Click Dataset**.
 
+Download the dataset from:
+https://www.kaggle.com/datasets/pavansanagapati/ad-displayclick-data-on-taobaocom
 
+After downloading, place the following files inside the `data/` directory:
+
+- raw_sample.csv  
+- user_profile.csv  
+- ad_feature.csv  
+- behavior_log.csv  
+
+Example structure:
+
+data/
+├── raw_sample.csv  
+├── user_profile.csv  
+├── ad_feature.csv  
+└── behavior_log.csv  
+
+⚠️ Note:
+- The dataset is not included in this repository due to size limitations.
+- Make sure file names match exactly, or the pipeline will fail.
+```
 ---
 
 ## 3. Output (Evaluation)
