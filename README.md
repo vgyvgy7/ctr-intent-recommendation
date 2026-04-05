@@ -71,9 +71,9 @@ Key observations:
 - Intent embeddings help recover performance loss in limited data settings
 
 ---
-```
-## 4. Repository Structure
 
+## 4. Repository Structure
+```
 ctr_project/
 - data/                  (dataset not included)
 - output/                (generated results, ignored)
@@ -89,7 +89,7 @@ ctr_project/
   - train_eval.py        (training and evaluation logic)
 - requirements.txt
 - README.md
-
+```
 ---
 
 ## 5. References
