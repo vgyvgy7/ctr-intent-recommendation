@@ -115,7 +115,6 @@ data/
 ```
 ### Model B (Enhanced: Intent-aware DeepFM)
 
-```
 [User Behavior Data]
         │
         ▼
